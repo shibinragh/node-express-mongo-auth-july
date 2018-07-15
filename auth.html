@@ -1,0 +1,38 @@
+<html>
+  <body>
+    <form action="/" method="post">
+      <div>
+        <label>Username:</label>
+        <input type="text" name="username" />
+        <br/>
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+      <button id="myBtn">Button</button>
+      <script>
+        //var update = getElementById('update');
+          document.getElementById("myBtn").addEventListener("click", function(){
+              alert(0);
+                fetch('update',{
+                    method:'put',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        'username': 'jay'
+                    })
+                }).then(res => {
+                    if (res.ok) return res.json()
+                    })
+                    .then(data => {
+                    console.log(data)
+                    window.location.reload(true)
+                    })
+            });
+      </script>
+  </body>
+</html>
